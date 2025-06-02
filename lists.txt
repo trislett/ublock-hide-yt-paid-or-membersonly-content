@@ -1,0 +1,45 @@
+! Title: Hide YouTube Pay-to-Watch Content
+! Description: Removes videos with "Pay to watch" buttons/badges
+! Version: 1.1
+! Last modified: 2025-06-02
+
+! Hide videos with "Pay to watch" badge/button
+youtube.com##ytd-rich-item-renderer:has-text("Pay to watch")
+youtube.com##ytd-video-renderer:has-text("Pay to watch")
+youtube.com##ytd-compact-video-renderer:has-text("Pay to watch")
+youtube.com##ytd-grid-video-renderer:has-text("Pay to watch")
+
+! Hide videos with "Pay to watch" in metadata
+youtube.com##ytd-rich-item-renderer:has(#metadata-line:has-text("Pay to watch"))
+youtube.com##ytd-video-renderer:has(#metadata-line:has-text("Pay to watch"))
+
+! Hide the specific pay-to-watch badge element
+youtube.com##.badge-style-type-simple:has-text("Pay to watch")
+youtube.com##ytd-badge-supported-renderer:has-text("Pay to watch")
+
+! Hide entire video containers that contain pay-to-watch elements
+youtube.com##ytd-rich-item-renderer:has(.badge-style-type-simple:has-text("Pay to watch"))
+youtube.com##ytd-video-renderer:has(.badge-style-type-simple:has-text("Pay to watch"))
+
+! Hide from search results
+youtube.com##ytd-video-renderer.ytd-item-section-renderer:has-text("Pay to watch")
+
+! Hide from home page
+youtube.com##ytd-rich-item-renderer.ytd-rich-grid-renderer:has-text("Pay to watch")
+
+! Hide from recommended/sidebar
+youtube.com##ytd-compact-video-renderer.ytd-watch-next-secondary-results-renderer:has-text("Pay to watch")
+
+! Mobile YouTube
+m.youtube.com##.compact-media-item:has-text("Pay to watch")
+m.youtube.com##.media-item:has-text("Pay to watch")
+
+! Hide premium badges and indicators
+youtube.com##ytd-rich-item-renderer:has(.badge-style-type-simple):has-text("Premium")
+youtube.com##ytd-video-renderer:has(.badge-style-type-simple):has-text("Premium")
+
+! Hide channel membership content
+youtube.com##ytd-rich-item-renderer:has([aria-label*="Members only"])
+youtube.com##ytd-video-renderer:has([aria-label*="Members only"])
+youtube.com##ytd-rich-item-renderer:has-text("Members only")
+youtube.com##ytd-video-renderer:has-text("Members only")
