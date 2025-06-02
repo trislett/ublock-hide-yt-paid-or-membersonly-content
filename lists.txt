@@ -1,7 +1,11 @@
-! Title: Hide YouTube Pay-to-Watch Content
+! Title: Hide Pay-to-Watch Content
 ! Description: Removes videos with "Pay to watch" buttons/badges
-! Version: 1.1
+! Version: 1.0.0
 ! Last modified: 2025-06-02
+! Expires: 10 weeks (update frequency)
+! Homepage: https://github.com/trislett/ublock-hide-yt-paid-or-membersonly-content
+! License: https://github.com/trislett/ublock-hide-yt-paid-or-membersonly-content/blob/master/LICENSE.md
+
 
 ! Hide videos with "Pay to watch" badge/button
 youtube.com##ytd-rich-item-renderer:has-text("Pay to watch")
