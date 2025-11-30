@@ -1,24 +1,20 @@
 ! Title: Hide Pay-to-Watch Content
 ! Description: Removes videos with "Pay to watch" buttons/badges and low view count
-! Version: 1.1.1
+! Version: 1.1.2
 ! Last modified: 2025-11-30
 ! Expires: 10 weeks (update frequency)
 ! Homepage: https://github.com/trislett/ublock-hide-yt-paid-or-membersonly-content
 ! License: https://github.com/trislett/ublock-hide-yt-paid-or-membersonly-content/blob/master/LICENSE.md
 
 ! Matches "No views", "1 view", "999 views" but NOT "1K views", "1,000 views" or "1.1K views"
-youtube.com##ytd-rich-item-renderer:has(#metadata-line:has-text(/\b([1-9]|[1-9]\d|[1-9]\d{2}) views?\b/))
-youtube.com##ytd-rich-item-renderer:has(#metadata-line:has-text("No views"))
-youtube.com##ytd-video-renderer:has(#metadata-line:has-text(/\b([1-9]|[1-9]\d|[1-9]\d{2}) views?\b/))
-youtube.com##ytd-video-renderer:has(#metadata-line:has-text("No views"))
-youtube.com##ytd-compact-video-renderer:has(#metadata-line:has-text(/\b([1-9]|[1-9]\d|[1-9]\d{2}) views?\b/))
-youtube.com##ytd-compact-video-renderer:has(#metadata-line:has-text("No views"))
-youtube.com##ytd-grid-video-renderer:has(#metadata-line:has-text(/\b([1-9]|[1-9]\d|[1-9]\d{2}) views?\b/))
-youtube.com##ytd-grid-video-renderer:has(#metadata-line:has-text("No views"))
-
-! Additional targeting for view count in different locations
-youtube.com##ytd-rich-item-renderer:has(span.inline-metadata-item:has-text(/\b([1-9]|[1-9]\d|[1-9]\d{2}) views?\b/))
-youtube.com##ytd-video-renderer:has(span.inline-metadata-item:has-text(/\b([1-9]|[1-9]\d|[1-9]\d{2}) views?\b/))
+youtube.com##ytd-rich-item-renderer:has(.yt-content-metadata-view-model__metadata-row span[role="text"]:has-text(/^([1-9]|[1-9]\d|[1-9]\d{2}) views?$/))
+youtube.com##ytd-rich-item-renderer:has(.yt-content-metadata-view-model__metadata-row span[role="text"]:has-text("No views"))
+youtube.com##ytd-video-renderer:has(.yt-content-metadata-view-model__metadata-row span[role="text"]:has-text(/^([1-9]|[1-9]\d|[1-9]\d{2}) views?$/))
+youtube.com##ytd-video-renderer:has(.yt-content-metadata-view-model__metadata-row span[role="text"]:has-text("No views"))
+youtube.com##ytd-compact-video-renderer:has(.yt-content-metadata-view-model__metadata-row span[role="text"]:has-text(/^([1-9]|[1-9]\d|[1-9]\d{2}) views?$/))
+youtube.com##ytd-compact-video-renderer:has(.yt-content-metadata-view-model__metadata-row span[role="text"]:has-text("No views"))
+youtube.com##ytd-grid-video-renderer:has(.yt-content-metadata-view-model__metadata-row span[role="text"]:has-text(/^([1-9]|[1-9]\d|[1-9]\d{2}) views?$/))
+youtube.com##ytd-grid-video-renderer:has(.yt-content-metadata-view-model__metadata-row span[role="text"]:has-text("No views"))
 
 ! Hide videos with "Pay to watch" badge/button
 youtube.com##ytd-rich-item-renderer:has-text("Pay to watch")
