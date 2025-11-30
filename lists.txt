@@ -1,11 +1,16 @@
 ! Title: Hide Pay-to-Watch Content
-! Description: Removes videos with "Pay to watch" buttons/badges
-! Version: 1.0.0
-! Last modified: 2025-06-02
+! Description: Removes videos with "Pay to watch" buttons/badges and low view count
+! Version: 1.1.0
+! Last modified: 2025-11-30
 ! Expires: 10 weeks (update frequency)
 ! Homepage: https://github.com/trislett/ublock-hide-yt-paid-or-membersonly-content
 ! License: https://github.com/trislett/ublock-hide-yt-paid-or-membersonly-content/blob/master/LICENSE.md
 
+! Matches "No views", "1 view", "999 views" but NOT "1K views" or "1,000 views"
+youtube.com##ytd-rich-item-renderer:has(#metadata-line span:has-text(/^(No views?|[1-9]\d{0,2} views?)$/))
+youtube.com##ytd-video-renderer:has(#metadata-line span:has-text(/^(No views?|[1-9]\d{0,2} views?)$/))
+youtube.com##ytd-compact-video-renderer:has(.ytd-video-meta-block span:has-text(/^(No views?|[1-9]\d{0,2} views?)$/))
+youtube.com##ytd-grid-video-renderer:has(#metadata-line span:has-text(/^(No views?|[1-9]\d{0,2} views?)$/))
 
 ! Hide videos with "Pay to watch" badge/button
 youtube.com##ytd-rich-item-renderer:has-text("Pay to watch")
@@ -25,6 +30,15 @@ youtube.com##ytd-badge-supported-renderer:has-text("Pay to watch")
 youtube.com##ytd-rich-item-renderer:has(.badge-style-type-simple:has-text("Pay to watch"))
 youtube.com##ytd-video-renderer:has(.badge-style-type-simple:has-text("Pay to watch"))
 
+! Target thumbnail overlays and badges
+youtube.com##ytd-rich-item-renderer:has(ytd-thumbnail-overlay-badge-renderer:has-text("Pay to watch"))
+youtube.com##ytd-video-renderer:has(ytd-thumbnail-overlay-badge-renderer:has-text("Pay to watch"))
+youtube.com##ytd-compact-video-renderer:has(ytd-thumbnail-overlay-badge-renderer:has-text("Pay to watch"))
+
+! Target badge containers
+youtube.com##ytd-rich-item-renderer:has(#badges:has-text("Pay to watch"))
+youtube.com##ytd-video-renderer:has(#badges:has-text("Pay to watch"))
+
 ! Hide from search results
 youtube.com##ytd-video-renderer.ytd-item-section-renderer:has-text("Pay to watch")
 
@@ -34,13 +48,42 @@ youtube.com##ytd-rich-item-renderer.ytd-rich-grid-renderer:has-text("Pay to watc
 ! Hide from recommended/sidebar
 youtube.com##ytd-compact-video-renderer.ytd-watch-next-secondary-results-renderer:has-text("Pay to watch")
 
+! Text-based matching
+youtube.com##ytd-rich-item-renderer:has-text("Members only")
+youtube.com##ytd-video-renderer:has-text("Members only")
+youtube.com##ytd-compact-video-renderer:has-text("Members only")
+youtube.com##ytd-grid-video-renderer:has-text("Members only")
+
+! Aria-label matching
+youtube.com##ytd-rich-item-renderer:has([aria-label*="Members only"])
+youtube.com##ytd-video-renderer:has([aria-label*="Members only"])
+youtube.com##ytd-compact-video-renderer:has([aria-label*="Members only"])
+
+! Badge matching (NEW)
+youtube.com##ytd-rich-item-renderer:has(ytd-thumbnail-overlay-badge-renderer:has-text("Members only"))
+youtube.com##ytd-video-renderer:has(ytd-thumbnail-overlay-badge-renderer:has-text("Members only"))
+youtube.com##ytd-compact-video-renderer:has(ytd-thumbnail-overlay-badge-renderer:has-text("Members only"))
+
+! Badge container matching (NEW)
+youtube.com##ytd-rich-item-renderer:has(#badges:has-text("Members only"))
+youtube.com##ytd-video-renderer:has(#badges:has-text("Members only"))
+
+! Alternative text variations (NEW)
+youtube.com##ytd-rich-item-renderer:has-text("Member-only")
+youtube.com##ytd-video-renderer:has-text("Member-only")
+youtube.com##ytd-rich-item-renderer:has-text("Membership")
+youtube.com##ytd-video-renderer:has-text("Membership")
+
 ! Mobile YouTube
 m.youtube.com##.compact-media-item:has-text("Pay to watch")
 m.youtube.com##.media-item:has-text("Pay to watch")
+m.youtube.com##.compact-media-item:has-text("Members only")
+m.youtube.com##.media-item:has-text("Members only")
 
 ! Hide premium badges and indicators
 youtube.com##ytd-rich-item-renderer:has(.badge-style-type-simple):has-text("Premium")
 youtube.com##ytd-video-renderer:has(.badge-style-type-simple):has-text("Premium")
+youtube.com##ytd-compact-video-renderer:has(.badge-style-type-simple):has-text("Premium")
 
 ! Hide channel membership content
 youtube.com##ytd-rich-item-renderer:has([aria-label*="Members only"])
