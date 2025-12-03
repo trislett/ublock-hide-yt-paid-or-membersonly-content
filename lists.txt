@@ -16,6 +16,22 @@ youtube.com##ytd-compact-video-renderer:has(.yt-content-metadata-view-model__met
 youtube.com##ytd-grid-video-renderer:has(.yt-content-metadata-view-model__metadata-row span[role="text"]:has-text(/^([1-9]|[1-9]\d|[1-9]\d{2}) views?$/))
 youtube.com##ytd-grid-video-renderer:has(.yt-content-metadata-view-model__metadata-row span[role="text"]:has-text("No views"))
 
+! Targets the badge structure containing "Members first" text
+youtube.com##ytd-rich-item-renderer:has(.yt-content-metadata-view-model__badge:has-text("Members first"))
+youtube.com##ytd-video-renderer:has(.yt-content-metadata-view-model__badge:has-text("Members first"))
+youtube.com##ytd-compact-video-renderer:has(.yt-content-metadata-view-model__badge:has-text("Members first"))
+youtube.com##ytd-grid-video-renderer:has(.yt-content-metadata-view-model__badge:has-text("Members first"))
+
+! Alternative targeting via badge-shape
+youtube.com##ytd-rich-item-renderer:has(.yt-badge-shape__text:has-text("Members first"))
+youtube.com##ytd-video-renderer:has(.yt-badge-shape__text:has-text("Members first"))
+youtube.com##ytd-compact-video-renderer:has(.yt-badge-shape__text:has-text("Members first"))
+youtube.com##ytd-grid-video-renderer:has(.yt-badge-shape__text:has-text("Members first"))
+
+! Target commerce badge type
+youtube.com##ytd-rich-item-renderer:has(.yt-badge-shape--commerce:has-text("Members first"))
+youtube.com##ytd-video-renderer:has(.yt-badge-shape--commerce:has-text("Members first"))
+
 ! Hide videos with "Pay to watch" badge/button
 youtube.com##ytd-rich-item-renderer:has-text("Pay to watch")
 youtube.com##ytd-video-renderer:has-text("Pay to watch")
