@@ -20,6 +20,18 @@ youtube.com##ytd-grid-video-renderer:has(.yt-content-metadata-view-model__metada
 youtube.com##yt-lockup-view-model:has(.yt-content-metadata-view-model__metadata-row span[role="text"]:has-text(/^([1-9]|[1-9]\d|[1-9]\d{2}) views?$/))
 youtube.com##yt-lockup-view-model:has(.yt-content-metadata-view-model__metadata-row span[role="text"]:has-text("No views"))
 
+! HIDE LIVE STREAMS UNDER 25 VIEWERS
+youtube.com##ytd-rich-item-renderer:has(.yt-content-metadata-view-model__metadata-row span[role="text"]:has-text(/^([1-9]|1[0-9]|2[0-4]) watching$/))
+youtube.com##ytd-rich-item-renderer:has(.yt-content-metadata-view-model__metadata-row span[role="text"]:has-text("No one watching"))
+youtube.com##ytd-video-renderer:has(.yt-content-metadata-view-model__metadata-row span[role="text"]:has-text(/^([1-9]|1[0-9]|2[0-4]) watching$/))
+youtube.com##ytd-video-renderer:has(.yt-content-metadata-view-model__metadata-row span[role="text"]:has-text("No one watching"))
+youtube.com##ytd-compact-video-renderer:has(.yt-content-metadata-view-model__metadata-row span[role="text"]:has-text(/^([1-9]|1[0-9]|2[0-4]) watching$/))
+youtube.com##ytd-compact-video-renderer:has(.yt-content-metadata-view-model__metadata-row span[role="text"]:has-text("No one watching"))
+youtube.com##ytd-grid-video-renderer:has(.yt-content-metadata-view-model__metadata-row span[role="text"]:has-text(/^([1-9]|1[0-9]|2[0-4]) watching$/))
+youtube.com##ytd-grid-video-renderer:has(.yt-content-metadata-view-model__metadata-row span[role="text"]:has-text("No one watching"))
+youtube.com##yt-lockup-view-model:has(.yt-content-metadata-view-model__metadata-row span[role="text"]:has-text(/^([1-9]|1[0-9]|2[0-4]) watching$/))
+youtube.com##yt-lockup-view-model:has(.yt-content-metadata-view-model__metadata-row span[role="text"]:has-text("No one watching"))
+
 ! Targets the badge structure containing "Members first" text
 youtube.com##ytd-rich-item-renderer:has(.yt-content-metadata-view-model__badge:has-text("Members first"))
 youtube.com##ytd-video-renderer:has(.yt-content-metadata-view-model__badge:has-text("Members first"))
