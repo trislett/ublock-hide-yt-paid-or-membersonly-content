@@ -16,6 +16,10 @@ youtube.com##ytd-compact-video-renderer:has(.yt-content-metadata-view-model__met
 youtube.com##ytd-grid-video-renderer:has(.yt-content-metadata-view-model__metadata-row span[role="text"]:has-text(/^([1-9]|[1-9]\d|[1-9]\d{2}) views?$/))
 youtube.com##ytd-grid-video-renderer:has(.yt-content-metadata-view-model__metadata-row span[role="text"]:has-text("No views"))
 
+! Sidebar lockup view model
+youtube.com##yt-lockup-view-model:has(.yt-content-metadata-view-model__metadata-row span[role="text"]:has-text(/^([1-9]|[1-9]\d|[1-9]\d{2}) views?$/))
+youtube.com##yt-lockup-view-model:has(.yt-content-metadata-view-model__metadata-row span[role="text"]:has-text("No views"))
+
 ! Targets the badge structure containing "Members first" text
 youtube.com##ytd-rich-item-renderer:has(.yt-content-metadata-view-model__badge:has-text("Members first"))
 youtube.com##ytd-video-renderer:has(.yt-content-metadata-view-model__badge:has-text("Members first"))
